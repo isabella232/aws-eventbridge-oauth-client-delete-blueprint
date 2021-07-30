@@ -1,0 +1,51 @@
+{
+    "version": "0",
+    "id": "e9938ff0-50e2-45f8-950f-ad02d95fee85",
+    "detail-type": "v2.audits.entitytype.{id}.entityid.{id}",
+    "source": "aws.partner/genesys.com/cloud/23faea37-1117-4c0a-88a2-572c46780b03/quickstart-test",
+    "account": "490606849374",
+    "time": "2021-05-31T09:49:26Z",
+    "region": "us-east-1",
+    "resources": [],
+    "detail": {
+        "topicName": "v2.audits.entitytype.OAuthClient.entityid.46a10c81-ca63-4bfe-bc9d-3fbf41ee06b5",
+        "version": "2",
+        "eventBody": {
+            "id": "128b506d-0a67-4e8c-a27c-fd3ed9566094",
+            "userId": "d7ff136e-8f5a-4878-a0ae-e2138ad0345d",
+            "userHomeOrgId": "23faea37-1117-4c0a-88a2-572c46780b03",
+            "username": {
+                "id": ""
+            },
+            "clientId": {
+                "id": "46a10c81-ca63-4bfe-bc9d-3fbf41ee06b5"
+            },
+            "serviceName": "PeoplePermissions",
+            "eventTime": "2021-05-31T09:49:25.000Z",
+            "action": "Delete",
+            "entityType": "OAuthClient",
+            "entity": {
+                "id": "46a10c81-ca63-4bfe-bc9d-3fbf41ee06b5",
+                "name": "My OAuth Client"
+            },
+            "propertyChanges": [
+                {
+                    "property": "deleted_on",
+                    "newValues": [
+                        "2021-05-31T09:44:53Z"
+                    ]
+                },
+                {
+                    "property": "scopes",
+                    "oldValues": [
+                        "users"
+                    ]
+                }
+            ]
+        },
+        "metadata": {
+            "CorrelationId": "8f725aa1-d831-4fb3-a8ea-9ccf7d44db68-archival"
+        },
+        "timestamp": "2021-05-31T09:49:26.031Z"
+    }
+}
