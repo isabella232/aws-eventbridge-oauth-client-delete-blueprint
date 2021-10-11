@@ -1,5 +1,6 @@
 ---
 title: AWS EventBridge - Create a PagerDuty incident in response to OAuth client deletes
+preview: true
 author: ronan.watkins
 indextype: blueprint
 icon: blueprint
@@ -14,7 +15,7 @@ This Genesys Cloud Developer Blueprint provides an example of a Lambda function 
 ![Create a PagerDuty incident in response to OAuth Client deletes](images/arch-eventbridge-lambda.png "Diagram for the AWS EventBridge - Create a PagerDuty incident in response to OAuth client deletes blueprint")
 
 * [Solution components](#solution-components "Goes to the Solutions components section")
-* [Software development kits (SDKs)](#software-development-kits-sdks "Goes to the Software development kits section")
+* [Software development kits (SDKs)](#software-development-kits "Goes to the Software development kits section")
 * [Prerequisites](#prerequisites "Goes to the Prerequisites section")
 * [Implementation steps](#implementation-steps "Goes to the Implementation steps section")
 * [Additional resources](#additional-resources "Goes to the Additional resources section")
@@ -29,7 +30,7 @@ This Genesys Cloud Developer Blueprint provides an example of a Lambda function 
 * **[Node.js](https://nodejs.org/en/ "Opens the NodeJs website")** - An open-source, cross-platform JavaScript runtime environment.
 * **[Python](https://www.python.org/ "Opens the Python website")** - An interpreted, high-level programming language that is used to quickly build modularized, object-oriented programs.
 
-## Software development kits (SDKs)
+## Software development kits
 
 * **[PDJS](https://github.com/PagerDuty/pdjs "Opens the PDJS repo in GitHub")** - A JavaScript wrapper that allows convenient access to the PagerDuty APIs.
 * **[PDPYRAS](https://github.com/PagerDuty/pdpyras "Opens the PDPYRAS repo in GitHub")** - A Python client that simplifies access to the PagerDuty REST API and PagerDuty Events API.
@@ -50,7 +51,7 @@ This Genesys Cloud Developer Blueprint provides an example of a Lambda function 
 * An administrator account with permissions to access the following services:
   * AWS Identity and Access Management (IAM)
   * AWS Lambda
-* AWS credentials. For more information about setting up your AWS credentials on your local machine, see [About credential providers](https://docs.aws.amazon.com/sdkref/latest/guide/creds-config-files.html "Opens The shared config and credentials files") in AWS documentation.
+* AWS credentials. For more information about setting up your AWS credentials on your local machine, see [The shared config and credentials files](https://docs.aws.amazon.com/sdkref/latest/guide/creds-config-files.html "Opens The shared config and credentials files on the About credential providers page") in AWS documentation.
 * AWS SAM CLI version 1.23.0 or later. For more information, see [Install AWS SAM](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html "Opens Installing AWS SAM CLI") on the AWS website.
 
 ### Third-party software
@@ -60,7 +61,7 @@ This Genesys Cloud Developer Blueprint provides an example of a Lambda function 
 
 ## Implementation steps
 
-* [Clone the repository containing the project files](#clone-the-repository-containing-the-project-files "Goes to the Clone the repository containing the project files section")
+* [Clone the repository that contains the project files](#clone-the-repository-that-contains-the-project-files "Goes to the Clone the repository that contains the project files section")
 * [Enable the Amazon EventBridge integration in your Genesys Cloud account](#enable-the-amazon-eventbridge-integration-in-your-genesys-cloud-account "Goes to the Enable the Amazon EventBridge integration in your Genesys Cloud account section")
 * [Configure your EventBridge software as a service (SaaS) integration](#configure-your-eventbridge-software-as-a-service-saas-integration "Goes to the Configure your EventBridge software as a service (SaaS) integration section")
 * [Edit the configuration files](#edit-the-configuration-files  "Goes to the Edit the configuration files section")
@@ -68,9 +69,9 @@ This Genesys Cloud Developer Blueprint provides an example of a Lambda function 
 * [Delete an OAuth client](#delete-an-oauth-client "Goes to the Delete an OAuth client section")
 * [Run locally](#run-locally "Goes to the Run locally section")
 
-### Clone the repository containing the project files
+### Clone the repository that contains the project files
 
-Clone the [aws-eventbridge-oauth-client-delete-blueprint](https://github.com/GenesysCloudBlueprints/aws-eventbridge-oauth-client-delete-blueprint "Opens the aws-eventbridge-oauth-client-delete-blueprint repository in GitHub") repository in GitHub.
+Clone the [aws-eventbridge-oauth-client-delete-blueprint](https://github.com/GenesysCloudBlueprints/aws-eventbridge-oauth-client-delete-blueprint "Opens the aws-eventbridge-oauth-client-delete-blueprint") repository in GitHub.
 
 ### Enable the Amazon EventBridge Source integration in your Genesys Cloud organization
 
@@ -86,7 +87,7 @@ Clone the [aws-eventbridge-oauth-client-delete-blueprint](https://github.com/Gen
 
 ### Configure your EventBridge software as a service (SaaS) integration
 
-1. In your AWS account, configure your [EventBridge software as a service (SaaS)](https://console.aws.amazon.com/events/home?region=us-east-1#/partners) integration.
+1. In your AWS account, configure your [EventBridge software as a service (SaaS)](https://console.aws.amazon.com/events/home?region=us-east-1#/partners "Opens your AWS management console") integration.
 2. Make a note of the event source name (for example, `aws.partner/example.com/1234567890/test-event-source`).
 3. Before proceeding to the next step, verify that your event source is listed as **Pending**.
 
@@ -104,19 +105,19 @@ You must build the application before you deploy it. The SAM CLI resolves the de
 
 1. From the repo root, run the following command:
 
-```
-sam build
-```
+  ```
+  sam build
+  ```
 
 2. Deploy the application. The following command uses CloudFormation to create the necessary resources for this application (roles, Lambdas, DynamoDB table, and so on).
 
-:::primary
-This command creates resources in your AWS account and incurs costs. You must be authenticated to use the CLI before running the following command.
-:::
+  :::primary
+  **Note**: This command creates resources in your AWS account and incurs costs. You must be authenticated to use the CLI before running the following command.
+  :::
 
-```
-sam deploy --guided
-```
+  ```
+  sam deploy --guided
+  ```
 
 3. When you are prompted, choose an appropriate stack name.  
 4. Verify that the `EventSourceName` parameter contains the event source name that you noted in the [Configure your EventBridge software as a service (SaaS) integration](#configure-your-eventbridge-software-as-a-service-saas-integration "Goes to the Configure your EventBridge software as a service (SaaS) integration section") step.
@@ -124,12 +125,12 @@ sam deploy --guided
 ### Delete an OAuth client
 
 :::primary
-Take extra care not to delete an existing OAuth client that is currently used in your production environment.
+**Note**: Take extra care not to delete an existing OAuth client that is currently used in your production environment.
 :::
 
 If you have the permissions to create and delete OAuth clients in Genesys Cloud, follow the instructions to [Create an OAuth client](https://help.mypurecloud.com/?p=188023). Then, delete the OAuth client in order to trigger the Lambda functions.  
 
-If you do not have the permissions to create and delete OAuth clients, use the event body located in `events/OAuthClientDelete.json` to trigger the Lambda functions:
+If you do **not** have the permissions to create and delete OAuth clients, use the event body located in `events/OAuthClientDelete.json` to trigger the Lambda functions:
 
 1. Find the stack by searching the [CloudFormation console](https://console.aws.amazon.com/cloudformation/home "Opens the CloudFormation console in the AWS website").
 2. Open the Lambda function. The `Logical ID` is `EventBridgeFunctionNode` for the TypeScript Lambda and `EventBridgeFunctionPython` for the Python Lambda.
@@ -137,13 +138,11 @@ If you do not have the permissions to create and delete OAuth clients, use the e
 4. Review the logs from the function invocation.
 5. To see if the Lambda function successfully created the incident, use the PagerDuty console.
 
-### Run locally
-
-#### Standalone
+## Run locally
 
 For debugging purposes, you can run the Python and TypeScript functions for this solution locally.  
 
-#### Run locally using the TypeScript functions
+### Run locally using the TypeScript functions
 
 1. Log a user presence update event to CloudWatch and save the contents to the `events/UserPresenceChange.json` file.  
 
@@ -159,7 +158,7 @@ For debugging purposes, you can run the Python and TypeScript functions for this
   ./run_local.sh node
   ```
 
-#### Run locally using the Python functions
+### Run locally using the Python functions
 
 1. Log a user presence update event to CloudWatch and save the contents to the `events/UserPresenceChange.json` file.  
 
@@ -175,7 +174,7 @@ For debugging purposes, you can run the Python and TypeScript functions for this
   /.run_local.sh python
 ```
 
-#### Run locally using the SAM CLI
+### Run locally using the SAM CLI
 
 To run the Lambdas locally and imitate the AWS Lambda environment, use the following commands.
 
