@@ -15,7 +15,7 @@ This Genesys Cloud Developer Blueprint provides an example of a Lambda function 
 ![Create a PagerDuty incident in response to OAuth Client deletes](images/arch-eventbridge-lambda.png "Diagram for the AWS EventBridge - Create a PagerDuty incident in response to OAuth client deletes blueprint")
 
 * [Solution components](#solution-components "Goes to the Solutions components section")
-* [Software development kits (SDKs)](#software-development-kits "Goes to the Software development kits section")
+* [Software development kits (SDKs)](#software-development-kits--sdks-- "Goes to the Software development kits (SDKs) section")
 * [Prerequisites](#prerequisites "Goes to the Prerequisites section")
 * [Implementation steps](#implementation-steps "Goes to the Implementation steps section")
 * [Additional resources](#additional-resources "Goes to the Additional resources section")
@@ -30,7 +30,7 @@ This Genesys Cloud Developer Blueprint provides an example of a Lambda function 
 * **[Node.js](https://nodejs.org/en/ "Opens the NodeJs website")** - An open-source, cross-platform JavaScript runtime environment.
 * **[Python](https://www.python.org/ "Opens the Python website")** - An interpreted, high-level programming language that is used to quickly build modularized, object-oriented programs.
 
-## Software development kits
+## Software development kits (SDKs)
 
 * **[PDJS](https://github.com/PagerDuty/pdjs "Opens the PDJS repo in GitHub")** - A JavaScript wrapper that allows convenient access to the PagerDuty APIs.
 * **[PDPYRAS](https://github.com/PagerDuty/pdpyras "Opens the PDPYRAS repo in GitHub")** - A Python client that simplifies access to the PagerDuty REST API and PagerDuty Events API.
@@ -63,7 +63,7 @@ This Genesys Cloud Developer Blueprint provides an example of a Lambda function 
 
 * [Clone the repository that contains the project files](#clone-the-repository-that-contains-the-project-files "Goes to the Clone the repository that contains the project files section")
 * [Enable the Amazon EventBridge integration in your Genesys Cloud account](#enable-the-amazon-eventbridge-integration-in-your-genesys-cloud-account "Goes to the Enable the Amazon EventBridge integration in your Genesys Cloud account section")
-* [Configure your EventBridge software as a service (SaaS) integration](#configure-your-eventbridge-software-as-a-service-saas-integration "Goes to the Configure your EventBridge software as a service (SaaS) integration section")
+* [Configure your EventBridge software as a service (SaaS) integration](#configure-your-eventbridge-software-as-a-service--saas--integration "Goes to the Configure your EventBridge software as a service (SaaS) integration section")
 * [Edit the configuration files](#edit-the-configuration-files  "Goes to the Edit the configuration files section")
 * [Deploy the application](#deploy-the-application "Goes to the Deploy the application section")
 * [Delete an OAuth client](#delete-an-oauth-client "Goes to the Delete an OAuth client section")
@@ -120,7 +120,7 @@ You must build the application before you deploy it. The SAM CLI resolves the de
   ```
 
 3. When you are prompted, choose an appropriate stack name.  
-4. Verify that the `EventSourceName` parameter contains the event source name that you noted in the [Configure your EventBridge software as a service (SaaS) integration](#configure-your-eventbridge-software-as-a-service-saas-integration "Goes to the Configure your EventBridge software as a service (SaaS) integration section") step.
+4. Verify that the `EventSourceName` parameter contains the event source name that you noted in the [Configure your EventBridge software as a service (SaaS) integration](#configure-your-eventbridge-software-as-a-service--saas--integration "Goes to the Configure your EventBridge software as a service (SaaS) integration section") step.
 
 ### Delete an OAuth client
 
