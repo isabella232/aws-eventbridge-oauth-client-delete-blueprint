@@ -1,6 +1,5 @@
 ---
 title: AWS EventBridge - Create a PagerDuty incident in response to OAuth client deletes
-preview: true
 author: ronan.watkins
 indextype: blueprint
 icon: blueprint
@@ -97,7 +96,7 @@ Clone the [aws-eventbridge-oauth-client-delete-blueprint](https://github.com/Gen
 
 For more information about creating a PagerDuty API key, see [Generating API Keys](https://support.pagerduty.com/docs/generating-api-keys "Opens the Generating API Keys ") on the PagerDuty website.  
 
-Optional: If you don't want to use the Lambda functions, remove the source code for them and references to them from `template.yaml`
+If you don't want to use either of the Lambda functions, remove the source code for them and references to them from `template.yaml`.
 
 ### Build and deploy the application
 
